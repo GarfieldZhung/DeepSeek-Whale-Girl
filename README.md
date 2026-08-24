@@ -51,31 +51,6 @@
 > [!CAUTION]
 > 不要把真实 API Key 发进 Issue、聊天截图、源码、Release 说明或 GitHub Actions 日志。如果 Key 曾经进入 Git 历史，请立即在服务端撤销并重新生成。
 
-## 想自己改改她？
-
-开发环境需要 Windows 10/11、Node.js 22 和 npm。
-
-```powershell
-git clone https://github.com/你的用户名/whale-girl-dashboard.git
-cd whale-girl-dashboard
-npm ci
-npm start
-```
-
-提交修改或打包前，先让检查员小鲸鱼闻一闻：
-
-```powershell
-npm test
-npm run prepublish:check
-npm audit --audit-level=high
-```
-
-打包目录版或 Windows 安装包：
-
-```powershell
-npm run pack
-npm run dist
-```
 
 ## 她会把什么留在电脑里？
 
@@ -100,18 +75,6 @@ npm run dist
 
 完整安全边界和漏洞报告方式见 [SECURITY.md](SECURITY.md)。这些措施用于降低风险，不代表任何软件可以绝对安全。
 
-## 准备放到 GitHub？
-
-发布前请逐项确认：
-
-1. 角色基础图和衍生图片是否获得公开再分发许可，并补充原作者、来源链接与许可证。
-2. `npm test`、`npm run prepublish:check` 和 `npm audit --audit-level=high` 是否全部通过。
-3. `git status` 中是否混入 `release-*`、`artifacts`、`archive`、配置、账单、日志或临时目录。
-4. 未确认素材授权前，仓库是否保持为 **Private**。
-5. GitHub Release 是否只包含验收过的程序和 SHA-256，而不包含用户数据。
-
-仓库已经准备了 Windows CI、Dependabot、敏感信息扫描、安全策略和贡献指南。
-
 ## 角色和素材从哪里来？
 
 - `assets/whale/whale-maid.png` 是项目发起者提供的社区二创参考图。
@@ -127,11 +90,6 @@ npm run dist
 
 ## 一起养鲸鱼
 
-Bug、台词、轻量交互和安全改进都欢迎参与。提交图片素材时，请务必说明来源和可再分发许可证。
-
-- 贡献说明：[CONTRIBUTING.md](CONTRIBUTING.md)
-- 更新记录：[CHANGELOG.md](CHANGELOG.md)
-- 安全报告：[SECURITY.md](SECURITY.md)
-- 代码许可：[MIT License](LICENSE)
+Bug、台词、轻量交互和安全改进都欢迎参与。
 
 如果她在桌面角落安静地陪了你一天，也别忘了偶尔点一下她的头。只是……五次以内比较安全。🐋

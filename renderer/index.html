@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'" />
+  <title>小鲸鱼看板娘</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main id="app">
+    <section class="bubble" id="speechBubble" aria-live="polite">
+      <span id="bubbleText">今天也要少吃一点 Token～</span>
+    </section>
+
+    <section class="dashboard hidden" id="dashboard">
+      <header class="panel-header no-drag">
+        <div><small>DEEPSEEK SURVIVAL MODE</small><h1>Token 饭碗</h1></div>
+        <button class="icon-button" id="closePanel" title="收起">×</button>
+      </header>
+      <div class="balance-card">
+        <div><span>API 余额</span><strong id="balance">未连接</strong></div>
+        <button id="refreshBalance">刷新</button>
+      </div>
+      <div class="stats-grid">
+        <article><span>今日费用</span><strong id="todayCost">¥0</strong></article>
+        <article><span>今日 Token</span><strong id="todayTokens">0</strong></article>
+        <article><span>本月费用</span><strong id="monthCost">¥0</strong></article>
+        <article><span>本月请求</span><strong id="monthRequests">0</strong></article>
+      </div>
+      <div class="token-row"><span>缓存命中</span><b id="hitTokens">0</b></div>
+      <div class="token-row"><span>未命中输入</span><b id="missTokens">0</b></div>
+      <div class="token-row"><span>模型输出</span><b id="outputTokens">0</b></div>
+      <div class="actions no-drag">
+        <button id="openSettings">设置</button>
+      </div>
+    </section>
+
+    <section class="settings hidden no-drag" id="settings">
+      <header class="panel-header"><div><small>LOCAL & ENCRYPTED</small><h1>设置</h1></div><button class="icon-button" id="closeSettings">×</button></header>
+      <div class="settings-card">
+        <div class="settings-card-title"><span>✦</span> DeepSeek 问答</div>
+        <label>API Key<input id="apiKey" type="password" autocomplete="off" placeholder="sk-…（留空保持不变）" /></label>
+        <div class="balance-card settings-balance">
+          <div><span>API 余额</span><strong id="settingsBalance">未连接</strong></div>
+          <button id="settingsRefreshBalance">刷新</button>
+        </div>
+      </div>
+      <div class="settings-card compact-card">
+        <div class="switch-row"><span>始终置顶</span><input id="alwaysOnTop" type="checkbox" /></div>
+        <div class="security-badge"><span>本地安全模式</span><strong id="securityStatus">检查中</strong></div>
+      </div>
+      <div class="actions"><button id="openData">数据目录</button><button id="saveSettings" class="primary">保存</button></div>
+    </section>
+
+    <section class="action-wheel hidden no-drag" id="actionWheel" aria-label="静态待机动作轮盘">
+      <button data-idle="swing">荡秋千</button><button data-idle="game">玩游戏</button>
+      <button data-idle="hover" class="selected">悬浮</button><button data-idle="movie">看电影</button>
+      <button data-idle="running">跑步减肥</button>
+    </section>
+
+    <section class="pet-chat hidden no-drag" id="petChat" aria-label="问问小鲸鱼">
+      <header><div><small>BIG_FAT_FISH</small><strong>问问小鲸鱼 ✦</strong></div><button id="closePetChat" title="收起">×</button></header>
+      <textarea id="chatQuestion" maxlength="1200" rows="3" placeholder="悄悄告诉小鲸鱼，你想问什么？"></textarea>
+      <div class="pet-chat-footer"><span id="chatStatus">对话不会保存在本地</span><button id="askWhale">发送 ✦</button></div>
+    </section>
+
+    <section class="pet-stage state-idle" id="petStage" title="单击摸头；双击切换待机；长按拖动；右键设置">
+      <img class="pet-image is-visible state-idle" id="petSprite" src="../assets/whale/whale-maid.png" alt="深蓝女仆鲸鱼娘" draggable="false" />
+      <img class="pet-image" id="petSpriteNext" src="../assets/whale/whale-maid.png" alt="" draggable="false" />
+      <button class="status-pill" id="statusPill" type="button">问问小鲸鱼</button>
+    </section>
+
+    <nav class="window-actions no-drag">
+      <button id="togglePanel" title="API 余额与账单">余额</button>
+      <button id="minimize" title="隐藏到托盘">—</button>
+      <button id="quit" title="退出">×</button>
+    </nav>
+  </main>
+  <script type="module" src="app.js"></script>
+</body>
+</html>

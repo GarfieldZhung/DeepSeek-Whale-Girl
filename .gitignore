@@ -1,0 +1,32 @@
+# Dependencies and build outputs
+node_modules/
+release/
+release-*/
+dist/
+out/
+artifacts/
+archive/
+
+# Local application data and secrets
+.env
+.env.*
+!.env.example
+config.json
+usage.json
+*.key
+*.pem
+*.p12
+*.pfx
+.smoke-user-data/
+
+# Local workspace and temporary files
+.tmp/
+.upstream/
+*.log
+*.tmp
+*.bak
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+

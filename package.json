@@ -1,0 +1,53 @@
+{
+  "name": "whale-girl-dashboard",
+  "version": "1.8.0",
+  "description": "Windows whale-girl desktop companion with DeepSeek balance, usage tracking, and character chat.",
+  "main": "electron/main.cjs",
+  "type": "module",
+  "author": "Whale Girl Dashboard contributors",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron . --dev",
+    "smoke": "electron . --smoke-test",
+    "test": "node --test",
+    "prepublish:check": "node scripts/prepublish-check.mjs",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder --win nsis"
+  },
+  "devDependencies": {
+    "electron": "^43.4.1",
+    "electron-builder": "^26.0.12"
+  },
+  "build": {
+    "appId": "cn.whalegirl.dashboard",
+    "productName": "小鲸鱼看板娘",
+    "asar": true,
+    "compression": "maximum",
+    "files": [
+      "electron/**/*",
+      "renderer/**/*",
+      "src/**/*",
+      "assets/**/*",
+      "package.json",
+      "LICENSE",
+      "THIRD_PARTY_NOTICES.md"
+    ],
+    "directories": {
+      "output": "release"
+    },
+    "win": {
+      "target": [
+        "nsis"
+      ],
+      "artifactName": "WhaleGirlDashboard-${version}-${arch}.${ext}"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "小鲸鱼看板娘"
+    }
+  }
+}
